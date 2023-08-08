@@ -1,0 +1,13 @@
+{
+  "name": "fundamentos-node-2",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Repositório para se atualizar em node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
