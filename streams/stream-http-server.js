@@ -11,10 +11,18 @@ class NegativeNumberStream extends Transform {
   }
 }
 
-const server = http.createServer((request, response) => {
-  return request
-    .pipe(new NegativeNumberStream())
-    .pipe(response)
+const server = http.createServer(async (request, response) => {
+  const buffers = []
+
+  for await (const chunk of request) {
+    buffers.push(chunk)
+  }
+
+  const fullStreamContent = Buffer.concat(buffers).toString()
+
+  console.log(fullStreamContent)
+
+  return response.end(fullStreamContent)
 })
 
 server.listen(3334)
